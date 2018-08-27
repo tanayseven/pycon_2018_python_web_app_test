@@ -1,59 +1,129 @@
 <!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.======.\ ' J           
+                         "-.   "__"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..-=  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Cube | Explore impress.js in 3D | by Henrik Ingo @henrikingo</title>
-    <meta name="description" content="Explore impress.js in 3D" />
-    <meta name="author" content="Henrik Ingo" />
-    <link href="css/cube.css" rel="stylesheet" />
-</head>
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Having a robust test suite for your web app</title>
+    
+    <meta name="description" content="Having a robust test suite for your web app" />
+    <meta name="author" content="Tanay PrabhuDesai" />
 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
 <body class="impress-not-supported">
 <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
+<div id="impress">
+    <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000"></div>
 
-<div id="impress" data-transition-duration="2000">
-
-    <div class="step" data-x="0" data-y="0" data-z="350"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-4 step-3 step-2 step-5 overview">
-        <p>Slide one</p>
+    <!-- Cube 1 -->
+    <div id="slide1" class="step slide" data-x="0" data-y="0" data-z="0">
+        <q>This is slide 1</q>
     </div>
-
-    <div class="step" data-x="350" data-y="0" data-z="0" data-rotate-y="90"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-4 step-3 step-6 step-1 overview">
-        <p>Slide two</p>
+    <div id="slide2" class="step slide" data-x="1000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <q>This is slide 2</q>
     </div>
-
-    <div class="step" data-x="0" data-y="350" data-z="0" data-rotate-x="-90" data-rotate-z="90"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-2 step-5 step-6 step-1 overview">
-        <p>Slide three</p>
+    <div id="slide3" class="step slide" data-x="0" data-y="0" data-rotate-y="180" data-z="-2000">
+        <q>This is slide 3</q>
     </div>
-
-    <div class="step" data-x="0" data-y="-350" data-z="0" data-rotate-x="90" data-rotate-z="-90"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-5 step-2 step-6 step-1 overview">
-        <p>Slide four</p>
+    <div id="slide4" class="step slide" data-x="-1000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <q>This is slide 4</q>
     </div>
+    <div id="separator1" class="step" data-x="2000" data-y="0" data-z="2000" data-rotate-y="0"></div>
 
-    <div class="step" data-x="-350" data-y="0" data-z="0" data-rotate-y="-90" data-rotate-z="-180"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-3 step-4 step-6 step-1 overview">
-        <p>Slide five</p>
+    <!-- Cube 2 -->
+    <div id="slide5" class="step slide" data-x="3000" data-y="0" data-z="0">
+        <q>This is slide 5</q>
     </div>
+    <div id="slide6" class="step slide" data-x="4000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <q>This is slide 6</q>
+    </div>
+    <div id="slide7" class="step slide" data-x="3000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <q>This is slide 7</q>
+    </div>
+    <div id="slide8" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <q>This is slide 8</q>
+    </div>
+    <div id="separator2" class="step" data-x="5000" data-y="0" data-z="2000" data-rotate-y="0"></div>
 
-    <div class="step" data-x="0" data-y="0" data-z="-350" data-rotate-y="-180" data-rotate-z="-180"
-         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-3 step-4 step-2 step-5 overview">
-        <p>Slide six</p>
+    <!-- Cube 3 -->
+    <div id="slide9" class="step slide" data-x="6000" data-y="0" data-z="0">
+        <q>This is slide 9</q>
     </div>
-
-    <div id="overview" class="step" data-x="700" data-y="-100" data-z="1000" data-scale="1" style="pointer-events: none;">
+    <div id="slide10" class="step slide" data-x="7000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <q>This is slide 10</q>
     </div>
+    <div id="slide11" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <q>This is slide 11</q>
+    </div>
+    <div id="slide12" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <q>This is slide 12</q>
+    </div>
+    <div id="separator3" class="step" data-x="8000" data-y="0" data-z="2000" data-rotate-y="0"></div>
+<!-- <div id="impress-toolbar"></div> -->
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate. <br/>
+       Press 'P' to launch speaker console.</p>
 </div>
-
-<div id="impress-toolbar"></div>
-<div id="impress-help"></div>
-
-<script type="text/javascript" src="js/impress.js"></script>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
 <script>impress().init();</script>
 
 </body>
