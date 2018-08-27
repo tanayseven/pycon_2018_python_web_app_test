@@ -94,6 +94,14 @@ body {
     background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190)); */
 }
 
+#logo {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    width: 300px;
+}
+
 /*
     Now let's bring some text styles back ...
 */
