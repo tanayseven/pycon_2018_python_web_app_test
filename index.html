@@ -57,6 +57,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
     <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/dracula.css" rel="stylesheet" />
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -71,86 +72,200 @@
     <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000"></div>
 
     <!-- Cube 1 -->
-    <div id="slide1" class="step slide" data-x="0" data-y="0" data-z="0">
-        <q>This is slide 1</q>
+    <div id="" class="step slide" data-x="0" data-y="0" data-z="0">
+        <div class="centered-content head-slide-content">
+            <h3 class="heading">Having a robust test suite</h3>
+            <div class="subtitle-content">
+                <p>Tanay PrabhuDesai</p>
+                <p>Software Engineer</p>
+                <p>Equal Experts</p>
+            </div>
+        </div>
         
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Hi, I'm Tanay</li>
+                <li>Working at Equal Experts for around 2 months</li>
+                <li>At the start of my career exposed to TDD</li>
+                <li>How many of you do TDD daily?</li>
+                <li>How many of you have different roles as QA and Dev?</li>
+            </ol>
         </div>
     </div>
-    <div id="slide2" class="step slide" data-x="1000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <q>This is slide 2</q>
-        <div class="notes">
-            <p>These are some notes</p>
+    <div id="" class="step slide" data-x="0" data-y="0" data-rotate-y="180" data-z="-2000">
+        <div class="centered-content">
+            <h3 class="heading heading-top-aligned">Disclaimer</h3>
+            <div class="subtitle-content">
+                <p>This talk is purely based on my previous experiences. The content has high chances of getting really opinionated and/or biased. Always remember this quote, "Just because you can, does not mean that you should" - Unknown</p>
+            </div>
         </div>
-    </div>
-    <div id="slide3" class="step slide" data-x="0" data-y="0" data-rotate-y="180" data-z="-2000">
-        <q>This is slide 3</q>
         <div class="notes">
-            <p>These are some notes</p>
-        </div>
-    </div>
-    <div id="slide4" class="step slide" data-x="-1000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <q>This is slide 4</q>
-        <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>The standard disclaimer goes as usual</li>
+                <li>The thoughts that I place forth in this talk are my learnings</li>
+                <li>I don't want myself to be held accountable for any diasaster that can be caused because of misinformation</li>
+                <li>Just because you can do something does not mean that you should do that thing</li>
+            </ol>
         </div>
     </div>
     <div id="separator1" class="step" data-x="2000" data-y="0" data-z="2000" data-rotate-y="0"></div>
 
     <!-- Cube 2 -->
-    <div id="slide5" class="step slide" data-x="3000" data-y="0" data-z="0">
-        <q>This is slide 5</q>
+    <div id="" class="step slide" data-x="3000" data-y="0" data-z="0">
+        <h3 class="heading heading-top-aligned centered-content">Typical application architecture</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Database layer</li>
+                <li>The Repo layer talks to the database layer</li>
+                <li>The business logic layer talks to the repo layer</li>
+                <li>The exposed "API" layer talks to the business logic layer</li>
+                <li>The UI layer talks to the API layer</li>
+            </ol>
         </div>
     </div>
-    <div id="slide6" class="step slide" data-x="4000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <q>This is slide 6</q>
+    <div id="" class="step slide" data-x="4000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <h3 class="heading heading-top-aligned centered-content">Tests at each point of the app architecture</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Testing the UI layer</li>
+                <li>Testing the API layer</li>
+                <li>Testinf the Repo layer</li>
+                <li>Testing the business logic as and when needed</li>
+                <li>Only test what is needed and avoid redundancy as much as possible</li>
+            </ol>
         </div>
     </div>
-    <div id="slide7" class="step slide" data-x="3000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <q>This is slide 7</q>
+    <div id="" class="step slide" data-x="3000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <h3 class="heading heading-top-aligned centered-content">Different types of tests across the layers</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Typical terminology in testing</li>
+                <li>Unit Tests</li>
+                <li>Functional Tests</li>
+                <li>Acceptence Tests</li>
+                <li>Integration Tests</li>
+            </ol>
+            <ol>
+                <li>Alternative names for tests</li>
+                <li>Repo tests</li>
+                <li>Service tests</li>
+                <li>Controller tests</li>
+                <li>E2E API tests</li>
+                <li>E2E UI tests</li>
+            </ol>
         </div>
     </div>
-    <div id="slide8" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <q>This is slide 8</q>
+    <div id="" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <h3 class="heading heading-top-aligned centered-content">Start writing tests from top and go down one step at a time</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>I personally do not like writing UI tests from top to bottom</li>
+                <li>But I do love going from top to bottom for tests that are done from the API level</li>
+                <li>So start from top, i.e. the API layer and write a test for it</li>
+                <li>Then go down one step at a time down the ladder just focusing on that one step</li>
+                <li>Continue down this path till you reach the bottom most layer</li>
+                <li>Hey! You're just done</li>
+            </ol>
         </div>
     </div>
     <div id="separator2" class="step" data-x="5000" data-y="0" data-z="2000" data-rotate-y="0"></div>
 
     <!-- Cube 3 -->
-    <div id="slide9" class="step slide" data-x="6000" data-y="0" data-z="0">
-        <q>This is slide 9</q>
+    <div id="" class="step slide" data-x="6000" data-y="0" data-z="0">
+        <h3 class="heading heading-top-aligned centered-content">Types of test doubles</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>The 5 types of test doubles that I know of</li>
+                <li>Dummies</li>
+                <li>Mocks</li>
+                <li>Stubs</li>
+                <li>Spys</li>
+                <li>Fakes</li>
+            </ol>
         </div>
     </div>
-    <div id="slide10" class="step slide" data-x="7000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <q>This is slide 10</q>
+    <div id="" class="step slide" data-x="7000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <h3 class="heading heading-top-aligned centered-content">Mocks</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Point 1</li>
+            </ol>
         </div>
     </div>
-    <div id="slide11" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <q>This is slide 11</q>
+    <div id="" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <h3 class="heading heading-top-aligned centered-content">Stubs</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Point 1</li>
+            </ol>
         </div>
     </div>
-    <div id="slide12" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <q>This is slide 12</q>
+    <div id="" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <h3 class="heading heading-top-aligned centered-content">Spys</h3>
         <div class="notes">
-            <p>These are some notes</p>
+            <ol>
+                <li>Point 1</li>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="6000" data-y="500" data-z="-1000" data-rotate-x="90">
+        <h3 class="heading heading-top-aligned centered-content">Fakes</h3>
+        <div class="notes">
+            <ol>
+                <li>Point 1</li>
+            </ol>
         </div>
     </div>
     <div id="separator3" class="step" data-x="8000" data-y="0" data-z="2000" data-rotate-y="0"></div>
+
+    <!-- Cube 4 -->
+    <div id="" class="step slide" data-x="9000" data-y="0" data-z="0">
+        <h3 class="heading heading-top-aligned centered-content">Evil of using test doubles</h3>
+        <div class="notes">
+            <ol>
+                <li>The 5 types of test doubles that I know of</li>
+                <li>Dummies</li>
+                <li>Mocks</li>
+                <li>Stubs</li>
+                <li>Spys</li>
+                <li>Fakes</li>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="10000" data-y="0" data-rotate-y="90" data-z="-1000">
+        <h3 class="heading heading-top-aligned centered-content">Mocks</h3>
+        <div class="notes">
+            <ol>
+                <li>Point 1</li>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="9000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <h3 class="heading heading-top-aligned centered-content">Stubs</h3>
+        <div class="notes">
+            <ol>
+                <li>Point 1</li>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="8000" data-y="0" data-z="-1000" data-rotate-y="270">
+        <h3 class="heading heading-top-aligned centered-content">Spys</h3>
+        <div class="notes">
+            <ol>
+                <li>Point 1</li>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="9000" data-y="500" data-z="-1000" data-rotate-x="90">
+        <h3 class="heading heading-top-aligned centered-content">Fakes</h3>
+        <div class="notes">
+            <ol>
+                <li>Point 1</li>
+            </ol>
+        </div>
+    </div>
+    <div id="separator4" class="step" data-x="11000" data-y="0" data-z="2000" data-rotate-y="0"></div>
+
 <!-- <div id="impress-toolbar"></div> -->
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate. <br/>
@@ -163,6 +278,7 @@ if ("ontouchstart" in document.documentElement) {
 </script>
 <script src="js/impress.js"></script>
 <script src="js/impressConsole.js"></script>
+<script src="js/highlight.js"></script>
 <script>impress().init();</script>
 <script>impressConsole().init()</script>
 

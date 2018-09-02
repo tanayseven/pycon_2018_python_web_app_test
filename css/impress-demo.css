@@ -221,8 +221,8 @@ a:focus {
 .slide {
     display: block;
 
-    width: 1600px;
-    height: 900px;
+    width: 1500px;
+    height: 800px;
     padding: 40px 60px;
 
     background-color: white;
@@ -237,6 +237,30 @@ a:focus {
     font-size: 30px;
     line-height: 36px;
     letter-spacing: -1px;
+}
+
+.centered-content {
+    margin: auto;
+    text-align: center;
+}
+
+.head-slide-content {
+    padding-top: 160px;
+}
+
+.heading-top-aligned {
+    padding-top: 60px;
+    line-height: 80px;
+}
+
+.subtitle-content {
+    padding-top: 180px;
+    line-height: 60px;
+    font-size: 45px;
+}
+
+h3.heading {
+    font-size: 80px;
 }
 
 .slide q {
