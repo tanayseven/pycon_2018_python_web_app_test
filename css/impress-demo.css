@@ -259,6 +259,14 @@ a:focus {
     font-size: 45px;
 }
 
+h4.heading {
+    font-size: 60px;
+}
+
+span.half-section {
+    width: 50%;
+}
+
 h3.heading {
     font-size: 80px;
 }
