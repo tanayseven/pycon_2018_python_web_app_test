@@ -113,6 +113,9 @@
     <!-- Cube 2 -->
     <div id="" class="step slide" data-x="3000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Typical application architecture</h3>
+        <div class="centered-content">
+            <img src="res/app_architecture.svg" alt="app_architecture" />
+        </div>
         <div class="notes">
             <ol>
                 <li>Database layer</li>
@@ -125,11 +128,14 @@
     </div>
     <div id="" class="step slide" data-x="4000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h4 class="heading heading-top-aligned centered-content">Tests at each point of the app architecture</h4>
+        <div class="centered-content">
+            <img src="res/app_architecture_with_individual_tests.svg" alt="testing at each layer of the application" />
+        </div>
         <div class="notes">
             <ol>
                 <li>Testing the UI layer</li>
                 <li>Testing the API layer</li>
-                <li>Testinf the Repo layer</li>
+                <li>Testing the Repo layer</li>
                 <li>Testing the business logic as and when needed</li>
                 <li>Only test what is needed and avoid redundancy as much as possible</li>
             </ol>
@@ -166,7 +172,9 @@
     </div>
     <div id="" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Start writing tests from top and go down one step at a time</h4>
-        <p>Image with layers split</p>
+        <div class="centered-content">
+            <img src="res/test_through_layers.svg" alt="tests from top to bottom" />
+        </div>
         <div class="notes">
             <ol>
                 <li>I personally do not like writing UI tests from top to bottom</li>
