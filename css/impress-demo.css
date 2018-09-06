@@ -57,8 +57,8 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
 }
-ol, ul {
-    list-style: none;
+ul {
+    list-style-type: disc;
 }
 blockquote, q {
     quotes: none;
@@ -86,12 +86,6 @@ body {
     min-height: 740px;
 
     background: rgb(53, 53, 53);
-    /* background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
-    background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
-    background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
-    background:     -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
-    background:      -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
-    background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190)); */
 }
 
 #logo {
@@ -263,8 +257,14 @@ h4.heading {
     font-size: 60px;
 }
 
+.hljs {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 span.half-section {
-    width: 50%;
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 h3.heading {

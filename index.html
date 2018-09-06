@@ -145,6 +145,7 @@
                     <li>Functional Tests</li>
                     <li>Acceptence Tests</li>
                     <li>Integration Tests</li>
+                    <li>Automation Tests</li>
                 </ol>
             </span>
             <span class="half-section">
@@ -160,24 +161,12 @@
         </div>
         <div class="notes">
             <ol>
-                <li>Typical terminology in testing</li>
-                <li>Unit Tests</li>
-                <li>Functional Tests</li>
-                <li>Acceptence Tests</li>
-                <li>Integration Tests</li>
-            </ol>
-            <ol>
-                <li>Alternative names for tests</li>
-                <li>Repo tests</li>
-                <li>Service tests</li>
-                <li>Controller tests</li>
-                <li>E2E API tests</li>
-                <li>E2E UI tests</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Start writing tests from top and go down one step at a time</h4>
+        <p>Image with layers split</p>
         <div class="notes">
             <ol>
                 <li>I personally do not like writing UI tests from top to bottom</li>
@@ -194,19 +183,27 @@
     <!-- Cube 3 -->
     <div id="" class="step slide" data-x="6000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Types of test doubles</h3>
+        <ol>
+            <li>Dummies</li>
+            <li>Mocks</li>
+            <li>Stubs</li>
+            <li>Spys</li>
+            <li>Fakes</li>
+        </ol>
         <div class="notes">
             <ol>
-                <li>The 5 types of test doubles that I know of</li>
-                <li>Dummies</li>
-                <li>Mocks</li>
-                <li>Stubs</li>
-                <li>Spys</li>
-                <li>Fakes</li>
+                <li>Gerard Meszaros terminology from the book: xUnit Test Patterns</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="7000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h4 class="heading heading-top-aligned centered-content">Mocks</h4>
+        <pre><code class="python">
+def test_allows_get_name():
+    user = User('Carl')
+    expect(user).get_name
+    user.get_name()
+        </code></pre>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -215,6 +212,12 @@
     </div>
     <div id="" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h4 class="heading heading-top-aligned centered-content">Stubs</h4>
+        <pre><code class="python">
+def test_allows_get_name():
+    user = User('Carl')
+    allow(user).get_name.and_returns('Carl')
+    assert user.get_name() is 'Carl'
+        </code></pre>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -223,6 +226,12 @@
     </div>
     <div id="" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Spys</h4>
+        <pre><code class="python">
+def test_allows_get_name():
+    user = User('Carl')
+    allow(user).get_name.can_call_once()
+    assert user.get_name() is 'Carl'
+        </code></pre>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -231,6 +240,12 @@
     </div>
     <div id="" class="step slide" data-x="6000" data-y="500" data-z="-1000" data-rotate-x="90">
         <h4 class="heading heading-top-aligned centered-content">Fakes</h4>
+        <pre><code class="python">
+def test_email_is_sent():
+    mailer = Mailer()
+    mailer.send(email='someone@somewhere.com', subject='Hello this is a email')
+    assert len(mailer.inbox) == 1
+        </code></pre>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -241,19 +256,27 @@
 
     <!-- Cube 4 -->
     <div id="" class="step slide" data-x="9000" data-y="0" data-z="0">
-        <h3 class="heading heading-top-aligned centered-content">Evil of using test doubles</h3>
+        <h4 class="heading heading-top-aligned centered-content">A test like this?</h4>
+        <pre><code class="python">
+def test_that_create_user_endpoint_returns_201_status():
+    endpoint = HttpEndpoint()
+    allow(endpoint).handle_response.and_return(201)
+    app.set_endpoint(endpoint)
+    response = app.post_json(create_user_endpoint, {'username': 'someone', 
+                                                    'password': 'password'})
+    assert response.status == 201
+        </code></pre>
         <div class="notes">
             <ol>
                 <li>Are these test doubles good?</li>
-                <li>Where do you use these test doubles?</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="10000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <h3 class="heading heading-top-aligned centered-content">Code coverage with Unit Tests</h3>
+        <h4 class="heading heading-top-aligned centered-content">Covering most of the things with unit tests</h4>
+        <h4>(Test pyramid image)</h4>
         <div class="notes">
             <ol>
-                <li>Show the pyramid here</li>
                 <li>Definition of a Unit test</li>
                 <li>How many people follow the test pyramid?</li>
                 <li>Is it correct to unit test everything?</li>
@@ -262,7 +285,8 @@
         </div>
     </div>
     <div id="" class="step slide" data-x="9000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <h3 class="heading heading-top-aligned centered-content">Tests accross architecture (using doubles)</h3>
+        <h4 class="heading heading-top-aligned centered-content">Tests accross architecture (using doubles)</h4>
+        (Architecture tests with image)
         <div class="notes">
             <ol>
                 <li>Show the architecture diagram here with tests</li>
@@ -272,18 +296,23 @@
         </div>
     </div>
     <div id="" class="step slide" data-x="8000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <h3 class="heading heading-top-aligned centered-content">Test controller with doubles</h3>
+        <h4 class="heading heading-top-aligned centered-content">Or a test like this?</h4>
+        <pre><code class="python">
+def test_that_create_user_endpoint_returns_201_status():
+    response = app.post_json('/create_user', {'username': 'someone', 
+                                              'password': 'password'})
+    assert response.status == 201
+        </code></pre>
         <div class="notes">
             <ol>
-                <li>Doubled surroundings in the tests</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="9000" data-y="500" data-z="-1000" data-rotate-x="90">
-        <h3 class="heading heading-top-aligned centered-content">Separating everything in the Jigsaw puzzle</h3>
+        <h4 class="heading heading-top-aligned centered-content">Separating everything in the Jigsaw puzzle</h4>
+        <h3>(Jigsaw image)</h3>
         <div class="notes">
             <ol>
-                <li>Show diagram of jigsaw puzzle</li>
             </ol>
         </div>
     </div>
@@ -291,14 +320,29 @@
 
     <!-- Cube 5 -->
     <div id="" class="step slide" data-x="12000" data-y="0" data-z="0">
-        <h3 class="heading heading-top-aligned centered-content">Do we really need to mock these things</h3>
+        <h3 class="heading heading-top-aligned centered-content">Reasons for overuse of unit tests</h3>
+        <ol>
+            <li>Unit tests are fast, while others are slow</li>
+            <li>Unit tests test smaller modules by breaking tasks into smaller chunks</li>
+            <li>It helps in debugging if something small is failing</li>
+            <li>Reduces the cost by making coding faster and reducing bugs</li>
+            <li>Helpful to do TDD using Unit Tests</li>
+            <li>Makes it easy to change and refactor code</li>
+        </ol>
         <div class="notes">
             <ol>
+                <li></li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="13000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <h3 class="heading heading-top-aligned centered-content">Mock the database layer?</h3>
+        <h4 class="heading heading-top-aligned centered-content">Mock the database layer?</h4>
+        <ol>
+            <li>Or mock any layer for that matter</li>
+            <li>You're not using the real object</li>
+            <li>You're testing something that does not exist</li>
+        </ol>
+        <p>(Image of a ripped out parts)</p>
         <div class="notes">
             <ol>
                 <li>Show the pyramid here</li>
@@ -306,11 +350,20 @@
                 <li>How many people follow the test pyramid?</li>
                 <li>Is it correct to unit test everything?</li>
                 <li>Do we need 100% unit tests?</li>
+                <li>Doubled surroundings in the tests</li>
+                <li>Everything that is tightly coupled is ripped out</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="12000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <h3 class="heading heading-top-aligned centered-content">Slow DI framework?</h3>
+        <h4 class="heading heading-top-aligned centered-content">Slow DI framework?</h4>
+        <ul>
+            <li>The dependency injection framework that you use is very slow</li>
+            <li>In Python Flask you do not need DI</li>
+            <li>Try to find the slow parts in your tests</li>
+            <li>Try to fix slow parts of your code</li>
+            <li>For Eg: The encryption part of login</li>
+        </ul>
         <div class="notes">
             <ol>
                 <li>Show the architecture diagram here with tests</li>
@@ -320,18 +373,19 @@
         </div>
     </div>
     <div id="" class="step slide" data-x="11000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <h3 class="heading heading-top-aligned centered-content">Test the whole thing from top to bottom (show diagram)</h3>
+        <h4 class="heading heading-top-aligned centered-content">True 100% testing</h4>
         <div class="notes">
             <ol>
-                <li>Doubled surroundings in the tests</li>
+
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="12000" data-y="500" data-z="-1000" data-rotate-x="90">
-        <h3 class="heading heading-top-aligned centered-content">Run all dependencies locally</h3>
+        <h4 class="heading heading-top-aligned centered-content">Keeping all the pieces together</h4>
+        <p>(Jigsaw puzzle image)</p>
         <div class="notes">
             <ol>
-                <li>Show diagram of jigsaw puzzle</li>
+
             </ol>
         </div>
     </div>
@@ -346,28 +400,50 @@
         </div>
     </div>
     <div id="" class="step slide" data-x="16000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <h3 class="heading heading-top-aligned centered-content">Public holiday schedule</h3>
+        <h4 class="heading heading-top-aligned centered-content">Public holiday schedule</h4>
+        <ul>
+            <li>Tests that fail on every Friday</li>
+            <li>Test for for a schedule manager like calender</li>
+            <li>The feature was to book an appointment</li>
+            <li>The tests checked if it is possible to book the appointment the next day or not</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="15000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <h3 class="heading heading-top-aligned centered-content">Selection of an item randomly</h3>
+        <h4 class="heading heading-top-aligned centered-content">Selection of any two out of three recommendations</h4>
+        <ul>
+            <li>Tests that fail randomly</li>
+            <li>Online store that show any 5 out of the possible recommendations</li>
+            <li>Test was written with 6 possible recommendations</li>
+            <li>The first 5 of them were asserted if they exist</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="14000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <h3 class="heading heading-top-aligned centered-content">Runs on Jenkins but fails on local</h3>
+        <h4 class="heading heading-top-aligned centered-content">Runs on Jenkins but fails on local</h4>
+        <ul>
+            <li>The Jenkins environment runs on Ubuntu Server</li>
+            <li>The local environment runs on a Mac</li>
+            <li>Hard to figure out what exactly is wrong because it is failing for everyone</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="15000" data-y="500" data-z="-1000" data-rotate-x="90">
-        <h3 class="heading heading-top-aligned centered-content">Only use doubles if you have no other solution (Example of a amazon service)</h3>
+        <h4 class="heading heading-top-aligned centered-content">Test an external email service</h4>
+        <ul>
+            <li>You have an external email service</li>
+            <li>You have to test if the email is sent or not</li>
+            <li>Simple solution is to use a Fake</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
@@ -398,14 +474,27 @@
         </div>
     </div>
     <div id="" class="step slide" data-x="17000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <h3 class="heading heading-top-aligned centered-content">Coverage</h3>
+        <h4 class="heading heading-top-aligned centered-content">Code Coverage</h4>
+        <ul>
+            <li>Pushing the coverage to 100%</li>
+            <li>CI forces coverage to go up</li>
+            <li>And it goes red when the coverage goes down</li>
+            <li>Coverage should always be a metric to measure what's not covered</li>
+        </ul>
         <div class="notes">
             <ol>
-                <li>Speaking of jenkins, pushing the tests to have 100% code coverage</li>
             </ol>
         </div>
     </div>
     <div id="separator7" class="step" data-x="20000" data-y="0" data-z="2000" data-rotate-y="0"></div>
+
+    <div id="" class="step slide" data-x="21000" data-y="0" data-z="0">
+        <h3 class="heading heading-top-aligned centered-content">Summary</h3>
+        <div class="notes">
+            <ol>
+            </ol>
+        </div>
+    </div>
 
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate. <br/>
