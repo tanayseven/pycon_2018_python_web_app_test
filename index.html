@@ -69,7 +69,8 @@
 </div>
 <img id="logo" src="./logo.png">
 <div id="impress">
-    <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000"></div>
+    <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000">
+    </div>
 
     <!-- Cube 1 -->
     <div id="" class="step slide" data-x="0" data-y="0" data-z="0">
@@ -347,7 +348,7 @@ def test_that_create_user_endpoint_returns_201_status():
     <!-- Cube 5 -->
     <div id="" class="step slide" data-x="12000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Reasons for overuse of unit tests</h3>
-        <ol>
+        <ol style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>Unit tests are fast, while others are slow</li>
             <li>Unit tests test smaller modules by breaking tasks into smaller chunks</li>
             <li>It helps in debugging if something small is failing</li>
@@ -363,12 +364,18 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="13000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h4 class="heading heading-top-aligned centered-content">Mock the database layer?</h4>
-        <ol>
-            <li>Or mock any layer for that matter</li>
-            <li>You're not using the real object</li>
-            <li>You're testing something that does not exist</li>
-        </ol>
-        <p>(Image of a ripped out parts)</p>
+        <div>
+            <div style="text-align: center;">
+                <ol style="padding-top: 50px; padding-left: 50px; line-height: 40px; list-style: none;">
+                    <li>Or mock any layer for that matter</li>
+                    <li>You're not using the real object</li>
+                    <li>You're testing something that does not exist</li>
+                </ol>
+            </div>
+            <div class="centered-content" style="padding-top: 80px">
+                <img src="./res//test_with_single_layer_mocked.svg" />
+            </div>
+        </div>
         <div class="notes">
             <ol>
                 <li>Show the pyramid here</li>
@@ -383,7 +390,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="12000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h4 class="heading heading-top-aligned centered-content">Slow DI framework?</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>The dependency injection framework that you use is very slow</li>
             <li>In Python Flask you do not need DI</li>
             <li>Try to find the slow parts in your tests</li>
@@ -400,7 +407,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="11000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">True 100% testing</h4>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 60px">
             <img src="res/app_architecture_with_whole_tests.svg" alt="modules split" />
         </div>
         <div class="notes">
@@ -410,7 +417,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="12000" data-y="500" data-z="-1000" data-rotate-x="90">
         <h4 class="heading heading-top-aligned centered-content">Keeping all the pieces together</h4>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 60px">
             <img src="res/integrated_modules.svg" alt="modules split" />
         </div>
         <div class="notes">
@@ -423,7 +430,7 @@ def test_that_create_user_endpoint_returns_201_status():
 
     <!-- Cube 6 -->
     <div id="" class="step slide" data-x="15000" data-y="0" data-z="0">
-        <h3 class="heading heading-top-aligned centered-content">Tests that fail once in a bluemoon (literally)</h3>
+        <h3 class="heading heading-top-aligned centered-content" style="padding-top: 260px;">Tests that fail once in a bluemoon (literally)</h3>
         <div class="notes">
             <ol>
             </ol>
@@ -431,7 +438,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="16000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h4 class="heading heading-top-aligned centered-content">Public holiday schedule</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>Tests that fail on every Friday</li>
             <li>Test for for a schedule manager like calender</li>
             <li>The feature was to book an appointment</li>
@@ -444,7 +451,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="15000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h4 class="heading heading-top-aligned centered-content">Selection of any two out of three recommendations</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>Tests that fail randomly</li>
             <li>Online store that show any 5 out of the possible recommendations</li>
             <li>Test was written with 6 possible recommendations</li>
@@ -457,7 +464,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="14000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Runs on Jenkins but fails on local</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>The Jenkins environment runs on Ubuntu Server</li>
             <li>The local environment runs on a Mac</li>
             <li>Hard to figure out what exactly is wrong because it is failing for everyone</li>
@@ -469,7 +476,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="15000" data-y="500" data-z="-1000" data-rotate-x="90">
         <h4 class="heading heading-top-aligned centered-content">Test an external email service</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>You have an external email service</li>
             <li>You have to test if the email is sent or not</li>
             <li>Simple solution is to use a Fake</li>
@@ -484,7 +491,7 @@ def test_that_create_user_endpoint_returns_201_status():
     <!-- Cube 7 -->
     <div id="" class="step slide" data-x="18000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Normal test pyramid</h3>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 60px;">
             <img src="res/test_pyramid.svg" alt="test pyramid" />
         </div>
         <div class="notes">
@@ -494,7 +501,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="19000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h3 class="heading heading-top-aligned centered-content">Test Cylinder</h3>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 60px;">
             <img src="res/test_cylinder.svg" alt="test cylinder" />
         </div>
         <div class="notes">
@@ -504,7 +511,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="18000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h3 class="heading heading-top-aligned centered-content">Test Ice-Cream Cone</h3>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 60px;">
             <img src="res/test_ice_cream_cone.svg" alt="test ice cream cone" />
         </div>
         <div class="notes">
@@ -514,7 +521,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="17000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Code Coverage</h4>
-        <ul>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>Pushing the coverage to 100%</li>
             <li>CI forces coverage to go up</li>
             <li>And it goes red when the coverage goes down</li>
@@ -529,6 +536,19 @@ def test_that_create_user_endpoint_returns_201_status():
 
     <div id="" class="step slide" data-x="21000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Summary</h3>
+        <div class="notes">
+            <ol>
+            </ol>
+        </div>
+    </div>
+    <div id="" class="step slide" data-x="21000" data-y="0" data-rotate-y="180" data-z="-2000">
+        <h3 class="heading heading-top-aligned centered-content">Thank you</h3>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
+            <li>tanayseven.com</li>
+            <li>twitter.com/tanayseven</li>
+            <li>github.com/tanayseven</li>
+            <li>linkedin.com/in/tanay-prabhudesai</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
