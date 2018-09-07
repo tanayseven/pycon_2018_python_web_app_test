@@ -69,8 +69,7 @@
 </div>
 <img id="logo" src="./logo.png">
 <div id="impress">
-    <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000">
-    </div>
+    <div id="separator0" class="step" data-x="0" data-y="0" data-z="4000"></div>
 
     <!-- Cube 1 -->
     <div id="" class="step slide" data-x="0" data-y="0" data-z="0">
@@ -88,6 +87,7 @@
                 <li>Hi, I'm Tanay</li>
                 <li>Working at Equal Experts for around 2 months</li>
                 <li>At the start of my career exposed to TDD</li>
+                <li>Big fan of quality of code</li>
                 <li>How many of you do TDD daily?</li>
                 <li>How many of you have different roles as QA and Dev?</li>
             </ol>
@@ -104,12 +104,20 @@
             <ol>
                 <li>The standard disclaimer goes as usual</li>
                 <li>The thoughts that I place forth in this talk are my learnings</li>
-                <li>I don't want myself to be held accountable for any diasaster that can be caused because of misinformation</li>
+                <li>I will try my best to make this talk as non opinionated as possible</li>
+                <li>I don't want myself to be held accountable for any diasaster or some server catching fire because of that</li>
                 <li>Just because you can do something does not mean that you should do that thing</li>
             </ol>
         </div>
     </div>
-    <div id="separator1" class="step" data-x="2000" data-y="0" data-z="2000" data-rotate-y="0"></div>
+    <div id="separator1" class="step" data-x="2000" data-y="0" data-z="2000" data-rotate-y="0">
+        <div class="notes">
+            <ol>
+                <li>Let's talk a bit about the kind of app that we are dealing with</li>
+                <li>And let's discuss how we actually be testing this</li>
+            </ol>
+        </div>
+    </div>
 
     <!-- Cube 2 -->
     <div id="" class="step slide" data-x="3000" data-y="0" data-z="0">
@@ -119,26 +127,30 @@
         </div>
         <div class="notes">
             <ol>
-                <li>Database layer</li>
-                <li>The Repo layer talks to the database layer</li>
-                <li>The business logic layer talks to the repo layer</li>
-                <li>The exposed "API" layer talks to the business logic layer</li>
-                <li>The UI layer talks to the API layer</li>
+                <li>Assume a typical monolith</li>
+                <li>There are typically multiple layers simillar to any other app</li>
+                <li>Repository layer talks to the database</li>
+                <li>It represents abstraction of communication with the database</li>
+                <li>The service layer represents some business logic or something simillar</li>
+                <li>Controller exposes the http endpoints to the frontend</li>
+                <li>UI layer is something that I like being separated from the rest of the backend</li>
+                <li>But that is ultimately a very personal opinion</li>
             </ol>
         </div>
     </div>
     <div id="" class="step slide" data-x="4000" data-y="0" data-rotate-y="90" data-z="-1000">
-        <h4 class="heading heading-top-aligned centered-content">Tests at each point of the app architecture</h4>
+        <h4 class="heading heading-top-aligned centered-content">How do we test this?</h4>
         <div class="centered-content">
-            <img src="res/app_architecture_with_individual_tests.svg" alt="testing at each layer of the application" />
+            <img src="res/app_architecture_with_layers_split.svg" alt="testing at each layer of the application" />
         </div>
         <div class="notes">
             <ol>
-                <li>Testing the UI layer</li>
-                <li>Testing the API layer</li>
-                <li>Testing the Repo layer</li>
-                <li>Testing the business logic as and when needed</li>
-                <li>Only test what is needed and avoid redundancy as much as possible</li>
+                <li>How do you think we will go about test these layers</li>
+                <li>If we assume that each of these layers have bidirectional flow of data</li>
+                <li>Let's assume we have create user requirement</li>
+                <li>What will you first do when you get the request</li>
+                <li>Assume a blank code base</li>
+                <li>What will be your first test?</li>
             </ol>
         </div>
     </div>
@@ -146,13 +158,13 @@
         <h4 class="heading heading-top-aligned centered-content">Different types of tests across the layers</h4>
         <div class="half-split-section">
             <span class="half-section padded-container">
-                <h5>Typical Terminology in testing</h5>
+                <h5>Typical terminology in testing</h5>
                 <ol>
-                    <li>Unit Tests</li>
-                    <li>Functional Tests</li>
-                    <li>Acceptence Tests</li>
-                    <li>Integration Tests</li>
-                    <li>Automation Tests</li>
+                    <li>Unit tests</li>
+                    <li>Functional tests</li>
+                    <li>Acceptance tests</li>
+                    <li>Integration tests</li>
+                    <li>Automation tests</li>
                 </ol>
             </span>
             <span class="half-section padded-container">
@@ -168,6 +180,9 @@
         </div>
         <div class="notes">
             <ol>
+                <li>We have our usual names of different tests</li>
+                <li>What exactly do these tests mean?</li>
+                <li>We can have better names...</li>
             </ol>
         </div>
     </div>
@@ -202,6 +217,9 @@
         <div class="notes">
             <ol>
                 <li>Gerard Meszaros terminology from the book: xUnit Test Patterns</li>
+                <li>Again these are terminologies that I actually like</li>
+                <li>Let's have a look at each and every thing from this</li>
+                <li>Dummies are the objects that are used as fillers these can be a lame object or null depending on your language</li>
             </ol>
         </div>
     </div>
@@ -216,9 +234,7 @@ def test_allows_get_name():
             </code></pre>
         </div>
         <div class="notes">
-            <ol>
-                <li>Point 1</li>
-            </ol>
+            <p>Mocks are pre-programmed with expectations which form a specification of the calls they are expected to receive. They can throw an exception if they receive a call they don't expect and are checked during verification to ensure they got all the calls they were expecting.</p>
         </div>
     </div>
     <div id="" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
@@ -232,13 +248,11 @@ def test_allows_get_name():
             </code></pre>
         </div>
         <div class="notes">
-            <ol>
-                <li>Point 1</li>
-            </ol>
+            <p>Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.</p>
         </div>
     </div>
     <div id="" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
-        <h4 class="heading heading-top-aligned centered-content">Spys</h4>
+        <h4 class="heading heading-top-aligned centered-content">Spies</h4>
         <div style="padding-top: 80px;">
             <pre><code class="python">
 def test_allows_get_name():
@@ -248,9 +262,7 @@ def test_allows_get_name():
             </code></pre>
         </div>
         <div class="notes">
-            <ol>
-                <li>Point 1</li>
-            </ol>
+            <p>Spies are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.</p>
         </div>
     </div>
     <div id="" class="step slide" data-x="6000" data-y="500" data-z="-1000" data-rotate-x="90">
@@ -264,9 +276,7 @@ def test_email_is_sent():
             </code></pre>
         </div>
         <div class="notes">
-            <ol>
-                <li>Point 1</li>
-            </ol>
+            <p>Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an InMemoryTestDatabase is a good example).</p>
         </div>
     </div>
     <div id="separator3" class="step" data-x="8000" data-y="0" data-z="2000" data-rotate-y="0"></div>
@@ -287,7 +297,10 @@ def test_that_create_user_endpoint_returns_201_status():
         </div>
         <div class="notes">
             <ol>
-                <li>Are these test doubles good?</li>
+                <li>Who can explain this test case?</li>
+                <li>What do you think about this test case? Is it a good way to test it?</li>
+                <li>How readable is it?</li>
+                <li>Do you think that we can write this in some other way?</li>
             </ol>
         </div>
     </div>
@@ -306,7 +319,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </div>
     </div>
     <div id="" class="step slide" data-x="9000" data-y="0" data-rotate-y="180" data-z="-2000">
-        <h4 class="heading heading-top-aligned centered-content">Tests accross architecture (using doubles)</h4>
+        <h4 class="heading heading-top-aligned centered-content">Tests across architecture (using doubles)</h4>
         <div class="centered-content">
             <img src="res/app_architecture_with_individual_tests.svg" alt="architecture with individual tests"/>
         </div>
@@ -340,6 +353,9 @@ def test_that_create_user_endpoint_returns_201_status():
         </div>
         <div class="notes">
             <ol>
+                <li>In this case you are actually splitting all the modules and testing them</li>
+                <li>Here the objects are not getting real objects that we can work with</li>
+                <li>How do we go about fixing this issues</li>
             </ol>
         </div>
     </div>
@@ -358,7 +374,8 @@ def test_that_create_user_endpoint_returns_201_status():
         </ol>
         <div class="notes">
             <ol>
-                <li></li>
+                <li>How many of you agree with this?</li>
+                <li>I personally think that it depends</li>
             </ol>
         </div>
     </div>
@@ -392,7 +409,7 @@ def test_that_create_user_endpoint_returns_201_status():
         <h4 class="heading heading-top-aligned centered-content">Slow DI framework?</h4>
         <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>The dependency injection framework that you use is very slow</li>
-            <li>In Python Flask you do not need DI</li>
+            <li>In Python Flask you probably do not need DI</li>
             <li>Try to find the slow parts in your tests</li>
             <li>Try to fix slow parts of your code</li>
             <li>For Eg: The encryption part of login</li>
@@ -412,6 +429,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </div>
         <div class="notes">
             <ol>
+                <li>Try doing end to end tests be using the actual database</li>
             </ol>
         </div>
     </div>
@@ -422,7 +440,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </div>
         <div class="notes">
             <ol>
-
+                <li>Viewing your app this way while testing</li>
             </ol>
         </div>
     </div>
@@ -433,6 +451,8 @@ def test_that_create_user_endpoint_returns_201_status():
         <h3 class="heading heading-top-aligned centered-content" style="padding-top: 260px;">Tests that fail once in a bluemoon (literally)</h3>
         <div class="notes">
             <ol>
+                <li>Why do some of our tests fail so frequently?</li>
+                <li>And why do such things even happen</li>
             </ol>
         </div>
     </div>
@@ -446,6 +466,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </ul>
         <div class="notes">
             <ol>
+                <li>What do you think might be causing this?</li>
             </ol>
         </div>
     </div>
@@ -459,6 +480,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </ul>
         <div class="notes">
             <ol>
+                <li>What do you think might be causing this?</li>
             </ol>
         </div>
     </div>
@@ -471,6 +493,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </ul>
         <div class="notes">
             <ol>
+                <li>What do you think might be causing this?</li>
             </ol>
         </div>
     </div>
@@ -483,6 +506,7 @@ def test_that_create_user_endpoint_returns_201_status():
         </ul>
         <div class="notes">
             <ol>
+                <li>How do we go about testing this?</li>
             </ol>
         </div>
     </div>
@@ -536,6 +560,13 @@ def test_that_create_user_endpoint_returns_201_status():
 
     <div id="" class="step slide" data-x="21000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Summary</h3>
+        <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
+            <li>If avoiding using doubles everywhere helps you then do it</li>
+            <li>Avoid writing unit tests just for the sake of 100% code coverage</li>
+            <li>Make sure that you remove the indeterminism to speed up your tests</li>
+            <li>Think about pyramid, cylinder or ice-cream cone depending on what you want to do</li>
+            <li>Don't do think just because you can, do think because you need to</li>
+        </ul>
         <div class="notes">
             <ol>
             </ol>
@@ -546,8 +577,6 @@ def test_that_create_user_endpoint_returns_201_status():
         <ul style="padding-top: 70px; padding-left: 90px; line-height: 70px;">
             <li>tanayseven.com</li>
             <li>twitter.com/tanayseven</li>
-            <li>github.com/tanayseven</li>
-            <li>linkedin.com/in/tanay-prabhudesai</li>
         </ul>
         <div class="notes">
             <ol>
