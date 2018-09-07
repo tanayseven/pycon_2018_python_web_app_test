@@ -262,7 +262,7 @@ h4.heading {
 }
 
 span.half-section {
-    width: 49%;
+    width: 40%;
     display: inline-block;
     vertical-align: top;
 }
@@ -283,6 +283,15 @@ h3.heading {
     white-space: nowrap;
 }
 
+.image-top-padding {
+    padding-top: 50px;
+}
+
+.padded-container {
+    padding-top: 50px;
+    padding-left: 60px;
+    line-height: 60px;
+}
 
 #title {
     padding: 0;

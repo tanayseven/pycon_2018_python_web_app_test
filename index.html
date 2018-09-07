@@ -113,7 +113,7 @@
     <!-- Cube 2 -->
     <div id="" class="step slide" data-x="3000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Typical application architecture</h3>
-        <div class="centered-content">
+        <div class="centered-content image-top-padding">
             <img src="res/app_architecture.svg" alt="app_architecture" />
         </div>
         <div class="notes">
@@ -144,7 +144,7 @@
     <div id="" class="step slide" data-x="3000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h4 class="heading heading-top-aligned centered-content">Different types of tests across the layers</h4>
         <div class="half-split-section">
-            <span class="half-section">
+            <span class="half-section padded-container">
                 <h5>Typical Terminology in testing</h5>
                 <ol>
                     <li>Unit Tests</li>
@@ -154,7 +154,7 @@
                     <li>Automation Tests</li>
                 </ol>
             </span>
-            <span class="half-section">
+            <span class="half-section padded-container">
                 <h5>Alternative names for tests</h5>
                 <ol>
                     <li>Repo tests</li>
@@ -172,7 +172,7 @@
     </div>
     <div id="" class="step slide" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Start writing tests from top and go down one step at a time</h4>
-        <div class="centered-content">
+        <div class="centered-content image-top-padding">
             <img src="res/test_through_layers.svg" alt="tests from top to bottom" />
         </div>
         <div class="notes">
@@ -191,7 +191,7 @@
     <!-- Cube 3 -->
     <div id="" class="step slide" data-x="6000" data-y="0" data-z="0">
         <h3 class="heading heading-top-aligned centered-content">Types of test doubles</h3>
-        <ol>
+        <ol class="padded-container" style="padding-top: 80px; padding-left: 200px;">
             <li>Dummies</li>
             <li>Mocks</li>
             <li>Stubs</li>
@@ -206,12 +206,14 @@
     </div>
     <div id="" class="step slide" data-x="7000" data-y="0" data-rotate-y="90" data-z="-1000">
         <h4 class="heading heading-top-aligned centered-content">Mocks</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_allows_get_name():
     user = User('Carl')
     expect(user).get_name
     user.get_name()
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -220,12 +222,14 @@ def test_allows_get_name():
     </div>
     <div id="" class="step slide" data-x="6000" data-y="0" data-rotate-y="180" data-z="-2000">
         <h4 class="heading heading-top-aligned centered-content">Stubs</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_allows_get_name():
     user = User('Carl')
     allow(user).get_name.and_returns('Carl')
     assert user.get_name() is 'Carl'
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -234,12 +238,14 @@ def test_allows_get_name():
     </div>
     <div id="" class="step slide" data-x="5000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Spys</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_allows_get_name():
     user = User('Carl')
     allow(user).get_name.can_call_once()
     assert user.get_name() is 'Carl'
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -248,12 +254,14 @@ def test_allows_get_name():
     </div>
     <div id="" class="step slide" data-x="6000" data-y="500" data-z="-1000" data-rotate-x="90">
         <h4 class="heading heading-top-aligned centered-content">Fakes</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_email_is_sent():
     mailer = Mailer()
     mailer.send(email='someone@somewhere.com', subject='Hello this is a email')
     assert len(mailer.inbox) == 1
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
                 <li>Point 1</li>
@@ -265,7 +273,8 @@ def test_email_is_sent():
     <!-- Cube 4 -->
     <div id="" class="step slide" data-x="9000" data-y="0" data-z="0">
         <h4 class="heading heading-top-aligned centered-content">A test like this?</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_that_create_user_endpoint_returns_201_status():
     endpoint = HttpEndpoint()
     allow(endpoint).handle_response.and_return(201)
@@ -273,7 +282,8 @@ def test_that_create_user_endpoint_returns_201_status():
     response = app.post_json(create_user_endpoint, {'username': 'someone', 
                                                     'password': 'password'})
     assert response.status == 201
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
                 <li>Are these test doubles good?</li>
@@ -309,12 +319,14 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="8000" data-y="0" data-z="-1000" data-rotate-y="270">
         <h4 class="heading heading-top-aligned centered-content">Or a test like this?</h4>
-        <pre><code class="python">
+        <div style="padding-top: 80px;">
+            <pre><code class="python">
 def test_that_create_user_endpoint_returns_201_status():
     response = app.post_json('/create_user', {'username': 'someone', 
                                               'password': 'password'})
     assert response.status == 201
-        </code></pre>
+            </code></pre>
+        </div>
         <div class="notes">
             <ol>
             </ol>
@@ -322,7 +334,7 @@ def test_that_create_user_endpoint_returns_201_status():
     </div>
     <div id="" class="step slide" data-x="9000" data-y="500" data-z="-1000" data-rotate-x="90">
         <h4 class="heading heading-top-aligned centered-content">Separating everything in the Jigsaw puzzle</h4>
-        <div class="centered-content">
+        <div class="centered-content" style="padding-top: 50px;">
             <img src="res/disintegrated_modules.svg" alt="modules split" />
         </div>
         <div class="notes">
